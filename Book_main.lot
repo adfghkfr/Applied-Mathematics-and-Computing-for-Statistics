@@ -1,0 +1,50 @@
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces 最基本的表格\relax }}{7}{}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces 羅馬符號\relax }}{8}{}%
+\contentsline {table}{\numberline {1.3}{\ignorespaces 數學運算符號\relax }}{8}{}%
+\contentsline {table}{\numberline {1.4}{\ignorespaces 數學運算符號\relax }}{9}{}%
+\contentsline {table}{\numberline {1.5}{\ignorespaces 數學運算符號\relax }}{9}{}%
+\contentsline {table}{\numberline {1.6}{\ignorespaces 數學運算符號\relax }}{10}{}%
+\contentsline {table}{\numberline {1.7}{\ignorespaces 範例表格\relax }}{19}{}%
+\contentsline {table}{\numberline {1.8}{\ignorespaces 含橫線跟豎線的表格\relax }}{19}{}%
+\contentsline {table}{\numberline {1.9}{\ignorespaces 設置每一列的數值居左/居中/居右的表格\relax }}{19}{}%
+\contentsline {table}{\numberline {1.10}{\ignorespaces 三線表格\relax }}{19}{}%
+\contentsline {table}{\numberline {1.11}{\ignorespaces 加入底色的表格\relax }}{20}{}%
+\contentsline {table}{\numberline {1.12}{\ignorespaces 兩個表格並列\relax }}{20}{}%
+\contentsline {table}{\numberline {1.13}{\ignorespaces 複雜表格\relax }}{21}{}%
+\contentsline {table}{\numberline {1.14}{\ignorespaces 合併列的表格\relax }}{21}{}%
+\contentsline {table}{\numberline {1.15}{\ignorespaces 表格粗細\relax }}{22}{}%
+\contentsline {table}{\numberline {1.16}{\ignorespaces 合併欄列的表格\relax }}{22}{}%
+\contentsline {table}{\numberline {1.17}{\ignorespaces 寬度過寬表格\relax }}{23}{}%
+\contentsline {table}{\numberline {1.18}{\ignorespaces 長型表格\relax }}{23}{}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces 套件 matplotlib 幾種繪圖函數\relax }}{34}{}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces 三種機器學習方法改變樣本數的兩群組訓練與測試資料分類錯誤率\relax }}{109}{}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces 三種機器學習方法改變群平均的兩群組訓練與測試資料分類錯誤率\relax }}{111}{}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces 三種機器學習方法改變群共變異數的兩群組訓練與測試資料分類錯誤率\relax }}{112}{}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces 三種機器學習方法改變樣本數的三群組訓練與測試資料分類錯誤率\relax }}{114}{}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces 三種機器學習方法改變群平均的三群組訓練與測試資料分類錯誤率\relax }}{115}{}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces 三種機器學習方法改變群共變異數的三群組訓練與測試資料分類錯誤率\relax }}{117}{}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces 不同隱藏層之類神經網路模型比較\relax }}{125}{}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces 機械手臂兩種套件改變隱藏層的類神經網路模型好壞比較\relax }}{127}{}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces 機械手臂兩種套件改變樣本數的類神經網路模型好壞比較\relax }}{128}{}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces 機械手臂兩種套件同時改變樣本數與隱藏層的類神經網路模型好壞比較\relax }}{128}{}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces 兩筆資料集改變隱藏層之測試資料分類準確度\relax }}{131}{}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces 七種機器學習方法改變樣本數的兩群組訓練資料分類錯誤率\relax }}{139}{}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces 七種機器學習方法改變樣本數的兩群組測試資料分類錯誤率\relax }}{139}{}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces 七種機器學習方法改變群平均的兩群組訓練資料分類錯誤率\relax }}{141}{}%
+\contentsline {table}{\numberline {7.4}{\ignorespaces 七種機器學習方法改變群平均的兩群組測試資料分類錯誤率\relax }}{141}{}%
+\contentsline {table}{\numberline {7.5}{\ignorespaces 七種機器學習方法改變群共變異數的兩群組訓練資料分類錯誤率\relax }}{142}{}%
+\contentsline {table}{\numberline {7.6}{\ignorespaces 七種機器學習方法改變群共變異數的兩群組測試資料分類錯誤率\relax }}{142}{}%
+\contentsline {table}{\numberline {7.7}{\ignorespaces 七種機器學習方法改變樣本數的三群組訓練資料分類錯誤率\relax }}{144}{}%
+\contentsline {table}{\numberline {7.8}{\ignorespaces 七種機器學習方法改變樣本數的三群組測試資料分類錯誤率\relax }}{144}{}%
+\contentsline {table}{\numberline {7.9}{\ignorespaces 七種機器學習方法改變群平均的三群組訓練資料分類錯誤率\relax }}{145}{}%
+\contentsline {table}{\numberline {7.10}{\ignorespaces 七種機器學習方法改變群平均的三群組測試資料分類錯誤率\relax }}{145}{}%
+\contentsline {table}{\numberline {7.11}{\ignorespaces 七種機器學習方法改變群共變異數的三群組訓練資料分類錯誤率\relax }}{146}{}%
+\contentsline {table}{\numberline {7.12}{\ignorespaces 七種機器學習方法改變群共變異數的三群組測試資料分類錯誤率\relax }}{147}{}%
+\addvspace {10\p@ }

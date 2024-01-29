@@ -1,0 +1,125 @@
+\contentsline {chapter}{序}{xi}{}%
+\contentsline {chapter}{\numberline {1} \XeLaTeX {\MB 基礎應用教學}}{1}{}%
+\contentsline {section}{\numberline {1.1}基本操作}{1}{}%
+\contentsline {subsection}{\numberline {1.1.1}頁面配置}{1}{}%
+\contentsline {subsubsection}{頁眉頁腳設定}{2}{}%
+\contentsline {subsubsection}{頁碼設置}{3}{}%
+\contentsline {subsubsection}{目錄設置}{4}{}%
+\contentsline {subsubsection}{目錄顏色}{4}{}%
+\contentsline {subsubsection}{長標題處理}{4}{}%
+\contentsline {subsection}{\numberline {1.1.2}文字設定}{4}{}%
+\contentsline {subsubsection}{文字字體與粗細}{4}{}%
+\contentsline {subsubsection}{文字顏色與大小}{6}{}%
+\contentsline {section}{\numberline {1.2}數學符號與方程式}{7}{}%
+\contentsline {subsection}{\numberline {1.2.1}常用數學符號}{8}{}%
+\contentsline {subsubsection}{常用羅馬符號}{8}{}%
+\contentsline {subsubsection}{常用數學運算符號}{8}{}%
+\contentsline {subsubsection}{常用數學關係符號}{9}{}%
+\contentsline {subsubsection}{其他常用數學符號}{9}{}%
+\contentsline {subsubsection}{其他常用數學運算符號}{10}{}%
+\contentsline {subsection}{\numberline {1.2.2}函數}{10}{}%
+\contentsline {subsection}{\numberline {1.2.3}聯立方程式}{11}{}%
+\contentsline {subsection}{\numberline {1.2.4}矩陣}{13}{}%
+\contentsline {subsection}{\numberline {1.2.5}範例}{15}{}%
+\contentsline {section}{\numberline {1.3}表格}{18}{}%
+\contentsline {subsection}{\numberline {1.3.1}基本表格運用}{18}{}%
+\contentsline {subsection}{\numberline {1.3.2}加入底色的表格}{20}{}%
+\contentsline {subsection}{\numberline {1.3.3}表格並列}{20}{}%
+\contentsline {subsection}{\numberline {1.3.4}文字表格並排}{21}{}%
+\contentsline {subsection}{\numberline {1.3.5}複雜表格建立}{21}{}%
+\contentsline {subsection}{\numberline {1.3.6}表格單元格合併}{21}{}%
+\contentsline {subsection}{\numberline {1.3.7}表格粗細}{22}{}%
+\contentsline {subsection}{\numberline {1.3.8}表格單元欄列合併}{22}{}%
+\contentsline {subsection}{\numberline {1.3.9}寬度過寬表格}{23}{}%
+\contentsline {subsection}{\numberline {1.3.10}長度過長表格}{23}{}%
+\contentsline {section}{\numberline {1.4}圖片}{25}{}%
+\contentsline {subsection}{\numberline {1.4.1}圖片並排}{26}{}%
+\contentsline {subsection}{\numberline {1.4.2}文字與圖片並排}{26}{}%
+\contentsline {subsection}{\numberline {1.4.3}圖片旋轉}{27}{}%
+\contentsline {section}{\numberline {1.5}結論}{27}{}%
+\contentsline {chapter}{\numberline {2} {\MB Python 基本函數繪圖}}{29}{}%
+\contentsline {section}{\numberline {2.1}基本機率函數繪圖}{29}{}%
+\contentsline {section}{\numberline {2.2}專題練習}{37}{}%
+\contentsline {section}{\numberline {2.3}結論}{40}{}%
+\contentsline {chapter}{\numberline {3}{\MB 常見機率分配與抽樣分配}}{41}{}%
+\contentsline {section}{\numberline {3.1}離散型分配}{41}{}%
+\contentsline {subsection}{\numberline {3.1.1}二項分配}{41}{}%
+\contentsline {subsubsection}{二項分配趨近常態分配}{43}{}%
+\contentsline {subsection}{\numberline {3.1.2}超幾何分配}{43}{}%
+\contentsline {subsection}{\numberline {3.1.3}幾何分配}{44}{}%
+\contentsline {subsection}{\numberline {3.1.4}卜瓦松分配}{44}{}%
+\contentsline {subsubsection}{二項分配趨近卜瓦松分配}{45}{}%
+\contentsline {subsubsection}{卜瓦松分配加成性}{46}{}%
+\contentsline {subsubsection}{卜瓦松抽樣分配}{48}{}%
+\contentsline {section}{\numberline {3.2}連續型分配}{51}{}%
+\contentsline {subsection}{\numberline {3.2.1}卡方分配}{51}{}%
+\contentsline {subsubsection}{卡方分配趨近常態分配與伽瑪分配}{52}{}%
+\contentsline {subsubsection}{卡方抽樣分配}{53}{}%
+\contentsline {subsection}{\numberline {3.2.2}指數分配}{56}{}%
+\contentsline {subsection}{\numberline {3.2.3}雙指數分配}{57}{}%
+\contentsline {subsection}{\numberline {3.2.4}伽瑪分配}{58}{}%
+\contentsline {subsubsection}{伽瑪分配加成性}{59}{}%
+\contentsline {subsubsection}{伽瑪抽樣分配}{60}{}%
+\contentsline {subsection}{\numberline {3.2.5}貝塔分配}{62}{}%
+\contentsline {subsubsection}{貝塔抽樣分配}{63}{}%
+\contentsline {subsection}{\numberline {3.2.6}柯西分配}{65}{}%
+\contentsline {subsection}{\numberline {3.2.7}常態分配}{66}{}%
+\contentsline {subsection}{\numberline {3.2.8}司徒頓 t 分配}{66}{}%
+\contentsline {subsection}{\numberline {3.2.9}F 分配}{67}{}%
+\contentsline {section}{\numberline {3.3}專題討論}{68}{}%
+\contentsline {section}{\numberline {3.4}結論}{69}{}%
+\contentsline {chapter}{\numberline {4}{\MB 迴歸分析與羅吉斯迴歸的分類問題}}{71}{}%
+\contentsline {section}{\numberline {4.1}機器學習基礎理論}{71}{}%
+\contentsline {subsection}{\numberline {4.1.1}監督式學習與非監督式學習}{71}{}%
+\contentsline {subsection}{\numberline {4.1.2}分類與迴歸問題}{72}{}%
+\contentsline {section}{\numberline {4.2}簡單線性迴歸模型}{73}{}%
+\contentsline {subsection}{\numberline {4.2.1}簡單線性迴歸理論}{73}{}%
+\contentsline {subsection}{\numberline {4.2.2}簡單線型迴歸分類方法}{73}{}%
+\contentsline {subsection}{\numberline {4.2.3}簡單線性迴歸分類範例}{74}{}%
+\contentsline {section}{\numberline {4.3}加廣迴歸模型}{77}{}%
+\contentsline {section}{\numberline {4.4}簡單線性迴歸與加廣迴歸模型比較}{78}{}%
+\contentsline {section}{\numberline {4.5}羅吉斯迴歸模型}{83}{}%
+\contentsline {subsection}{\numberline {4.5.1}羅吉斯迴歸理論}{83}{}%
+\contentsline {subsection}{\numberline {4.5.2}羅吉斯迴歸分類範例}{84}{}%
+\contentsline {section}{\numberline {4.6}結論}{87}{}%
+\contentsline {chapter}{\numberline {5}{\MB 判別分析與K-近鄰演算法的分類問題}}{89}{}%
+\contentsline {section}{\numberline {5.1}線性判別分析、二次判別分析與 K-近鄰演算法}{89}{}%
+\contentsline {subsection}{\numberline {5.1.1}線性判別分析}{89}{}%
+\contentsline {subsection}{\numberline {5.1.2}線性判別分析分類效果}{94}{}%
+\contentsline {subsection}{\numberline {5.1.3}二次判別分析}{95}{}%
+\contentsline {subsection}{\numberline {5.1.4}線性判別分析與二次判別分析比較}{95}{}%
+\contentsline {subsection}{\numberline {5.1.5}K-近鄰演算法}{99}{}%
+\contentsline {subsection}{\numberline {5.1.6}K-近鄰演算法分類效果}{100}{}%
+\contentsline {section}{\numberline {5.2}線性判別分析、二次判別分析與 K-近鄰演算法的分類效果}{107}{}%
+\contentsline {subsection}{\numberline {5.2.1}線性判別分析、二次判別分析與 K-近鄰演算法的兩群組分類}{108}{}%
+\contentsline {subsection}{\numberline {5.2.2}線性判別分析、二次判別分析與 K-近鄰演算法的三群組分類}{113}{}%
+\contentsline {section}{\numberline {5.3}結論}{117}{}%
+\contentsline {chapter}{\numberline {6}{\MB 類神經網路的分類問題}}{119}{}%
+\contentsline {section}{\numberline {6.1}類神經網路理論介紹}{119}{}%
+\contentsline {section}{\numberline {6.2}機械手臂方程式}{122}{}%
+\contentsline {subsection}{\numberline {6.2.1}最佳化模型}{123}{}%
+\contentsline {section}{\numberline {6.3}圖形識別}{129}{}%
+\contentsline {section}{\numberline {6.4}結論}{131}{}%
+\contentsline {chapter}{\numberline {7}{蒙地卡羅模擬實驗：多種分類方法的評比}}{133}{}%
+\contentsline {section}{\numberline {7.1}七種分類方法介紹}{133}{}%
+\contentsline {subsection}{\numberline {7.1.1}簡單線性迴歸簡述}{133}{}%
+\contentsline {subsection}{\numberline {7.1.2}加廣迴歸簡述}{134}{}%
+\contentsline {subsection}{\numberline {7.1.3}羅吉斯迴歸簡述}{134}{}%
+\contentsline {subsection}{\numberline {7.1.4}線性判別分析簡述}{135}{}%
+\contentsline {subsection}{\numberline {7.1.5}二次判別分析簡述}{135}{}%
+\contentsline {subsection}{\numberline {7.1.6}K-近鄰演算法簡述}{136}{}%
+\contentsline {subsection}{\numberline {7.1.7}類神經網路模型簡述}{136}{}%
+\contentsline {section}{\numberline {7.2}七種機器學習方法對兩群組資料的分類問題}{138}{}%
+\contentsline {subsection}{\numberline {7.2.1}兩群組更改樣本數大小的分類問題}{138}{}%
+\contentsline {subsection}{\numberline {7.2.2}兩群組更改群平均的分類問題}{140}{}%
+\contentsline {subsection}{\numberline {7.2.3}兩群組更改群共變異數的分類問題}{141}{}%
+\contentsline {section}{\numberline {7.3}七種機器學習方法對三群組資料的分類問題}{143}{}%
+\contentsline {subsection}{\numberline {7.3.1}三群組更改樣本數大小的分類問題}{143}{}%
+\contentsline {subsection}{\numberline {7.3.2}三群組更改群平均的分類問題}{144}{}%
+\contentsline {subsection}{\numberline {7.3.3}三群組更改群共變異數的分類問題}{145}{}%
+\contentsline {section}{\numberline {7.4}結論}{147}{}%
+\contentsline {chapter}{\numberline {8}參考文獻的使用與引用}{149}{}%
+\contentsline {section}{\numberline {8.1}初步觀念}{149}{}%
+\contentsline {section}{\numberline {8.2}參考文獻的引用：作者與年份}{149}{}%
+\contentsline {section}{\numberline {8.3}文獻引用方式}{150}{}%
+\contentsline {section}{\numberline {8.4}製作方式}{150}{}%

@@ -1,0 +1,770 @@
+%\input{711133115_preamble_CJK}   % 使用自己維護的定義檔
+%變更章節數字為中文數字
+%\geometry{a4paper,left=2.5cm,right=2.5cm,top=2cm,bottom=2cm}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{}
+
+
+%\title{{\MB 蒙地卡羅模擬實驗：多種分類方法的評比}}	
+% 使用設定的字型
+%\author{{\BB 郭翊萱 711133115}}				
+% 使用設定的小字體
+%\date{{\ST 2022.11 }} 			
+ 
+%\begin{document}
+%\maketitle
+%\fontsize{12}{22pt}\selectfont 
+\chapter{{蒙地卡羅模擬實驗：多種分類方法的評比}}
+
+在前面的章節中，分別對簡單線性迴歸 ( Simple Linear Regression )、加廣迴歸模型 ( Augmented Regression )、羅吉斯迴歸 ( Logistic Regression ) 三種決定性 ( Deterministic ) 機器學習方法與線性判別分析 ( LDA )、二次判別分析 ( QDA )、K-近鄰演算法三種機率性 ( Probabilistic ) 機器學習方法跟類神經網路模型的分類問題進行了探討，也大致了解了不同方法的理論以及分類上可能遇到的問題以及特性，但是卻未同時對決定性機器學習方法、機率性機器學習方法與類神經網路的分類準確度進行比較，因此在此章節中將模擬生成多個兩群與三群的雙變量常態資料來同時比較這七種方法的分類準確度。另外，本章節亦會嘗試生成非常態的資料來進行分類問題之比較。
+
+\section{七種分類方法介紹}
+
+\subsection{簡單線性迴歸簡述}
+
+線性迴歸 ( Linear Regression ) 是一種常見的監督式學習方法，是一種常見的預測定量響應變量 ( Response ) 的工具，它假定了 $X$ 與 $Y$ 之間存在線性關係，在數學上將這種關係記為:
+
+\begin{equation}\label{eq:hw7regression}
+Y = \beta_0 + \beta_1 X_1 +\beta_2 X_2 + \varepsilon_i
+\end{equation} 
+
+在上式 (\ref{eq:hw7regression}) 中假設存在兩個預測變量 $X_1$ 與 $X_2$，假設有 $N$ 筆已知的輸入與輸出資料 ( $\left[ x_1(i) \; x_2(i) \right]$, $y(i)$ )，利用最小平方法期望使觀察值與估計值的誤差越小越好。其計算方法如下矩陣 :
+
+$$ \left[
+       \begin{array}{clr}
+            y_1 \\
+            y_2 \\
+            \vdots \\
+            y_n
+       \end{array} \right] = \left[
+       \begin{array}{clr}
+            1 & X_1(1) & X_2(1)\\
+            1 & X_1(2) & X_2(2)\\
+            \vdots \\
+            1 & X_1(n) & X_2(n)
+       \end{array}\right] \left[
+       \begin{array}{clr}
+            \beta_0 \\
+            \beta_1 \\
+            \vdots \\
+            \beta_n 
+       \end{array}\right] $$ 
+       
+透過上述矩陣即可求得最佳解如式 (\ref{eq:hw7betahat})，式 (\ref{eq:hw7betahat}) 假設反矩陣 $(X^{T}X)^{-1}$ 存在，且每個輸出值 $y(i)$ 根據其類別分類至 0 或1。
+
+\begin{equation}\label{eq:hw7betahat}
+\hat{\beta}=(X^{T}X)^{-1}X^{T}y
+\end{equation}
+
+
+\subsection{加廣迴歸簡述}
+
+加廣迴歸模型是一種非線性的迴歸模型，它透過擴充簡單線性迴歸模型來試圖得到較好的分類準確度，其重新假設迴歸模型如式 (\ref{eq:hw7equation4}) :
+
+\begin{equation}\label{eq:hw7equation4}
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1 X_2 + \beta_4 X_1^{2} + \beta_5 X_2^{2}
+\end{equation}
+
+
+\subsection{羅吉斯迴歸簡述}
+
+假設存在兩個類別來解釋羅吉斯迴歸的簡單原理。在線性迴歸中利用 $p(x)=\beta_0+\beta_1 X_1 + \beta_2 X_2 X$ 來表示機率，而在羅吉斯迴歸中，則使用羅吉斯函數式 (\ref{eq:hw7equation44}) 結合最大概似估計 ( MLE ) 方法來擬合模型。
+
+\begin{equation}\label{eq:hw7equation44}
+p(X)=\frac{e^{\beta_0+\beta_1 X_1 + \beta_2 X_2}}{1+e^{\beta_0+\beta_1 X_1 + \beta_2 X_2}}
+\end{equation}
+
+接著將式 (\ref{eq:hw7equation44}) 改寫成式 (\ref{eq:hw7equation5})，並將其稱之為勝算比 ( odd )。
+
+\begin{equation}\label{eq:hw7equation5}
+\frac{p(X)}{1-p(X)}=e^{\beta_0+\beta_1 X_1 + \beta_2 X_2}
+\end{equation}
+
+若將式 (\ref{eq:hw7equation5}) 取 log，則將其稱為對數勝算比 ( log-odd )，寫作式 (\ref{eq:hw7equation6})
+
+\begin{equation}\label{eq:hw7equation6}
+log(\frac{p(X)}{1-p(X)})=\beta_0+\beta_1 X_1 + \beta_2 X_2
+\end{equation}
+
+
+\subsection{線性判別分析簡述}
+
+在線性判別分析 ( Linear Discriminant Analysis ) 中，試圖找出預測變數 X 在不同的反應變數 G ( 不同類別 ) 的分配，並利用貝氏定理去估計 $P(G=k|X=x)$。假設先驗分配 ( prior probability ) ( $P(G=k)$ ) 代表隨機從類別 $k$ 抽出觀察值的機率，而 後驗分配 $f_k(x)=P(X=x|G=k)$ 代表觀察值來自類別 $k$ 時 $X$ 的機率密度函數，則透過貝氏定理可知:
+
+\begin{equation}
+P(G=k|X=x)=\frac{P(G=k)P(X=x|G=k)}{\sum_{l=1}^{k}P(G=l)P(x=X|g=l)}
+\end{equation}
+
+其中，若使後驗分配 $P(X=x|G=k)$ 最大，則此分類的分類誤差 ( error rate )最少。
+
+假設 $X \sim N(\mu, \Sigma)$，且其機率密度函數如式 (\ref{eq:hw7gaussian}) :
+
+\begin{equation}\label{eq:hw7gaussian}
+f(x)=\frac{1}{(2\pi)^{p/2}\left|\Sigma\right|^{1/2}}exp(-\frac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu))
+\end{equation}
+
+而線性判別分析 ( LDA ) 會將觀察值 $X=x$ 分類至使式 (\ref{eq:hw7delta2}) 的值最大的第 $k$ 類。
+
+\begin{equation}\label{eq:hw7delta2}
+\delta_k(x)=x^{T}\Sigma^{-1}\mu_k-\frac{1}{2}\mu_k^{T}\Sigma^{-1}\mu_k+log P(G=k)
+\end{equation}
+
+透過以上式 (\ref{eq:hw7delta2}) 即可得到線性判別分析的分群結果。
+
+\subsection{二次判別分析簡述}
+
+在線性判別分析中假設母體服從常態分配且每個類別的共變異數相同 ( 共變異矩陣一樣 )，但在實務上往往很難滿足此假設，而二次判別分析中完善了此一缺點。二次判別分析假設了每個類別都有各自的共變異數，因此式 (\ref{eq:hw7delta2}) 可被改寫成如式 (\ref{eq:hw7qdadelta}) :
+
+\begin{equation}\label{eq:hw7qdadelta}
+\begin{split}
+\delta_k(x)=-\frac{1}{2}(x-\mu_k)^{T}\Sigma_k^{-1}(x-\mu_k)-\frac{1}{2}ln \left| \Sigma_k \right|+ln P(G=k)\\
+=-\frac{1}{2}x^{T}\Sigma_k^{-1}x+x^{T}\Sigma_k^{-1}\mu_k-\frac{1}{2}\mu_k^{T}\Sigma_k^{-1}\mu_k-\frac{1}{2}ln\left| \Sigma_k \right|+ln P(G=k)
+\end{split}
+\end{equation}
+
+其中，二次判別分析 ( QDA ) 需估計 $\Sigma_k$, $\mu_k$ 以及 $P(G=k)$ 並將觀察值 $X=x$ 分類至使式 (\ref{eq:hw7qdadelta}) 的值最大的類別 $k$。
+
+另外，二次判別分析的分界線為變數的二次方，被寫作如式 (\ref{eq:hw7qdaclass})
+
+\begin{equation}\label{eq:hw7qdaclass}
+\{  x|\delta_k(x)=\delta_l(x) \}
+\end{equation}
+
+
+\subsection{K-近鄰演算法簡述}
+
+雖然在機器學習中有幾種常見的方法是利用貝氏定理來求得條件機率 $P(Y|X=x)$，其中 $x$ 與 $y$ 分別是反應變數與預測變數，但在真實世界中，很難知道此條件機率的值，因此利用貝氏定理來分類有時是不可行的，而有一些方法便嘗試去估計 $P(Y|X=x)$，其中包含 K-近鄰演算法 ( KNN )。K-近鄰演算法透過給定 $K$ 值以及任一測試點 $x_0$，觀察離該點 $x_0$ 最近的 $K$ 個點 (即 $N_k(x)$)，並將這些鄰近的 $K$ 筆資料所對應的 $y$ 值取平均，得到式 (\ref{eq:hw7knn}) :
+
+\begin{equation}\label{eq:hw7knn}
+\hat{y}=Ave(y_i|x_i \in N_k(x))=\frac{1}{K}\sum_{x_i \in N_k(x)y_i}
+\end{equation}
+
+且其給定 $x$ 時 $y$ 的條件機率如式 (\ref{eq:hw7knnprob}) :
+
+\begin{equation}\label{eq:hw7knnprob}
+P(Y=j|X=x_0)=\frac{1}{K}\sum_{i \in N_0}I(y_i=j)
+\end{equation}
+
+
+\subsection{類神經網路模型簡述}
+
+類神經網路是一種模仿大腦運作的機器學習方式，透過大量的人工神經元連結進行計算，並能自行透過學習更多資訊進而對模型進行改進，其結構一般包含輸入層 ( Input )、隱藏層 ( Hidden Layer ) 以及輸出層 ( Ouput )，其中隱藏層的數量是可以進行改變的，一般會遵循以下步驟:
+
+\begin{itemize}
+\item{} 建立包含未知參數的函數
+
+假設函數為 $y=b+w x_1$，其中 $x_1$: views on $2/25$、$y$ : views on $2/26$，$w$ ( weight ) 與 $b$ ( bias ) 為模型之未知參數，其從已有資料中進行學習。
+
+\item{} 定義損失函數 ( Loss Function )
+
+定義函數的輸入( Input )為未知參數 $b$、$w$，而損失函數 ( Loss Function ) 則用來表示在將 input 丟入函數後，此函數的預測效果有多好，其函數可寫作如式 (\ref{eq:hw7loss})。
+
+\begin{equation}\label{eq:hw7loss}
+Loss = \frac{1}{N}\sum_{n}e_n
+\end{equation}
+
+其中 $e=(y-\hat{y})^{2}$。
+
+\item{} 利用不同的未知參數計算不同的損失函數並畫圖
+
+\item{} 最佳化模型 ( Optimization )
+
+最佳化模型有很多方法，其中有一個常見的方法是梯度下降 ( Gradient Descent )，嘗試求得合適的未知參數 $w$、$b$ 使得損失函數的值最小，在此文不進行過多討論。
+
+\end{itemize}
+
+在此步驟中，所有的模型調整全部建立在線性模型 ( Linear Model )之上進行調整，但線性模型往往太過簡單，就算選出了具有最小損失函數的模型，其依舊被初始設置的線性模型所限制 ( model bias )。而如何設置更複雜的模型 $?$ Sigmoid Function 協助達成了此目的，其被表示如式 (\ref{eq:hw7sigmoid})。
+
+\begin{equation}\label{eq:hw7sigmoid}
+sigmoid = \frac{1}{1+e^{-x}}
+\end{equation}
+
+故將新的預測模型寫作式 (\ref{eq:hw7function})。
+
+\begin{equation}\label{eq:hw7function}
+y=c \frac{1}{1+e^{-(b+w_1 x_1)}}=c \times sigmoid(b+w x_1)
+\end{equation}
+
+式 (\ref{eq:hw7function}) 中的 $w$ 控制函數坡度、$b$ 控制左右移動，$c$ 則可以改變函數的高度，若是具有兩個隱藏層，則利用此原理可以將類神經網路模型寫作式 (\ref{eq:hw7function2})。
+
+\begin{equation}\label{eq:hw7function2}
+\hat{y}=b_k^{2}+\sum_{i=1}^{q} w_{ki}^{2} g(\sum_{j=1}^{p} w_{ij}^{1} x_j +b_i^{1})+b_k^{2}, 1 \leq k \leq r 
+\end{equation}
+
+其中函式 $g(\bullet)$ 為映射函數 ( Sigmoid Function )，其數學式如式  (\ref{eq:hw7g_x})。
+
+\begin{equation}\label{eq:hw7g_x}
+g(z)=c_1 \frac{1-e^{-c_2 z}}{1+ e^{-c_2 z}}
+\end{equation}
+
+在式 (\ref{eq:hw7function2}) 中，$q$ 為映射函數 ( Sigmoid Function ) 的數量、$p$ 為輸入的特徵 ( feature )的數量、$w_{ij}^{1}$ 與 $b_i^{1}$ 代表第一個隱藏層的第 $i$ 個神經元與第 $j$ 個 input 的權重 ( Weight ) 跟偏誤 ( Biases )，而 $w_{ki}^{2}$ 與 $b_k^{2}$ 則是第二層隱藏層的第 $k$ 個神經元與前一隱藏層的第 $i$ 個輸出的權重與偏誤，為了使模型最佳化，期望能得到使此模型的損失函數 ( Loss Function ) 最小的未知參數。
+
+以上即是類神經網路的基本原理，但據此亦可知雖然其原理簡單有效，如果資料為高維資料時，如何求得使損失函數最小的未知參數也變得困難，如何定義需要多少隱藏層也成為挑戰。
+
+
+\section{七種機器學習方法對兩群組資料的分類問題}
+
+在此章節中將分別建立兩群組的雙變量常態資料跟三群組的雙變量常態資料，利用上面所述的七種機器學習方法來建立模型進行分類並比較其訓練資料準確度與測試資料準確度。與上面幾個章節相同，本節將模擬各種不同樣本數、不同平均向量與不同共變異數的資料集來進行比較，首先介紹模擬兩群組雙變量常態資料的情況，並嘗試改變其樣本數大小來觀察其訓練資料準確度與測試資料準確度。
+
+\subsection{兩群組更改樣本數大小的分類問題}
+
+此節設置雙變量常態資料的參數如下，其散布圖亦呈現於圖 \ref{fig:hw7sample-two}。
+
+$$ \mu_1 = \left[
+            \begin{array}{clr}
+                2  \\
+                2 
+            \end{array} \right] ,
+            \mu_2 = \left[
+            \begin{array}{clr}
+                4  \\
+                1 
+            \end{array} \right] $$ 
+$$ \Sigma_1 = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1
+            \end{array} \right] ,
+            \Sigma_2 = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1 
+            \end{array} \right]  $$
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.6]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation1.eps}
+    \caption{比較七種方法改變樣本數實驗的兩群組雙變量常態資料散布圖}
+    \label{fig:hw7sample-two}
+\end{figure} 
+
+根據圖 \ref{fig:hw7sample-two} 可以觀察到此兩群組雙變量常態資料的關係，接著嘗試利用七種機器學習方法建立分類模型，其中 KNN 模型的 K 值在此章節中都設定為 10，並利用 Bootstrapping 方法對資料抽樣100次並分別求其誤差，再將100次的誤差取平均後即可得到如表 \ref{tb:hw7sampletrain-two} 與表 \ref{tb:hw7sampletest-two} 的結果。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變樣本數的兩群組訓練資料分類錯誤率}\label{tb:hw7sampletrain-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$n_1=n_2=200$  & 0.146 & 0.142 & 0.147 & 0.146 & 0.147 & \textbf{0.116}  & 0.145 \\
+$n_1=n_2=500$  & 0.120 & 0.116 & 0.120 & 0.120 & 0.115 & \textbf{0.096} & 0.118 \\
+$n_1=n_2=1000$  & 0.112 & 0.111  & 0.112 & 0.112 & 0.116 & \textbf{0.099} & 0.114  \\
+$n_1=1000$, $n_2=500$  & 0.088 & 0.098 & 0.091 & 0.087 & 0.09 & \textbf{0.075} & 0.087   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變樣本數的兩群組測試資料分類錯誤率}\label{tb:hw7sampletest-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$n_1=n_2=200$  & 0.135 & \textbf{0.134} & 0.135 & 0.135 & 0.15 & 0.15  & 0.137 \\
+$n_1=n_2=500$  & 0.1195 & \textbf{0.1175} & 0.1188 & 0.1195 & 0.115 & 0.14 & 0.118 \\
+$n_1=n_2=1000$  & 0.112 & 0.112  & 0.112 & 0.112 & \textbf{0.085} & 0.099 & 0.115  \\
+$n_1=1000$, $n_2=500$  & 0.086 & 0.097 & 0.089 & 0.085 & \textbf{0.073} & 0.087 & 0.086   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+根據表 \ref{tb:hw7sampletrain-two} 與表 \ref{tb:hw7sampletest-two} 可知，雖然 KNN 模型無論在樣本數為多少時訓練誤差都是最小的，似乎應該是表現最好的分類模型，但是測試誤差卻是加廣迴歸模型 ( Augmented Regression ) 與 QDA 模型在不同樣本數下的表現最佳。
+
+\subsection{兩群組更改群平均的分類問題}
+
+接著觀察改變群平均時七種機器學習方法的訓練誤差與測試誤差，其雙變量常態資料的參數亦呈現如下，散布圖則如圖 \ref{fig:hw7mean-two}，此兩組雙變量常態資料會與圖 \ref{fig:hw7sample-two} 的散布圖資料一起比較，最後會得到表 \ref{tb:hw7meantrain-two} 與 \ref{tb:hw7meantest-two} 的結果。
+
+$$ \mu_1 = \left[
+            \begin{array}{clr}
+                2  \\
+                2 
+            \end{array} \right] ,
+            \mu_2 = \left[
+            \begin{array}{clr}
+                3  \\
+                3 
+            \end{array} \right]$$ 
+$$ \mu_1^{'} = \left[
+            \begin{array}{clr}
+                2  \\
+                6 
+            \end{array} \right] ,
+            \mu_2^{'} = \left[
+            \begin{array}{clr}
+                5  \\
+                9 
+            \end{array} \right]  $$ 
+
+$$ \Sigma_1 = \Sigma_1^{'}= \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1
+            \end{array} \right] ,
+            \Sigma_2 = \Sigma_2^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1 
+            \end{array} \right]  $$
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.6]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation2.eps}
+    \caption{比較七種方法改變群平均實驗的兩群組雙變量常態資料散布圖}
+    \label{fig:hw7mean-two}
+\end{figure} 
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群平均的兩群組訓練資料分類錯誤率}\label{tb:hw7meantrain-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\mu_1=(2,2)$,$\mu_2=(4,1)$  & 0.112 & 0.111  & 0.112 & 0.112 & 0.116 & \textbf{0.099} & 0.114 \\
+$\mu_1=(2,2)$,$\mu_2=(3,3)$  & 0.274 & 0.273 & 0.274 & 0.274 & 0.276 & \textbf{0.211} & 0.274 \\
+$\mu_1=(2,6)$,$\mu_2=(5,9)$  & 0.032 & 0.033  & 0.031 & 0.032 & 0.031 & \textbf{0.027} & 0.032 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+根據表 \ref{tb:hw7meantrain-two} 與表 \ref{tb:hw7meantest-two} 可知，平均數向量的改變並不影響 KNN 模型是七種方法中訓練資料準確度最高的模型，但是與樣本數的實驗相同， KNN 模型並非測試資料中準確度最高的模型，反而 QDA 模型似乎與樣本數實驗相同，都是七種方法中表現最好的模型。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群平均的兩群組測試資料分類錯誤率}\label{tb:hw7meantest-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\mu_1=(2,2)$,$\mu_2=(4,1)$  & 0.112 & 0.112  & 0.112 & 0.112 & \textbf{0.085} & 0.099 & 0.115  \\
+$\mu_1=(2,2)$,$\mu_2=(3,3)$  & 0.276 & 0.276 & 0.276 & 0.276 & \textbf{0.265} & 0.27 & 0.276 \\
+$\mu_1=(2,6)$,$\mu_2=(5,9)$  & \textbf{0.031} & 0.032  & \textbf{0.031} & \textbf{0.031} & 0.037 & 0.04 & \textbf{0.031}  \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{兩群組更改群共變異數的分類問題}
+
+接著來看改變共變異數時七種機器學習方法的分類效果，其參數設定如下所示，此小節中除了比較圖 \ref{fig:hw7sample-two} 中的雙變量常態資料外，也比較另外四種雙變量常態資料，其散布圖如圖 \ref{fig:hw7variance-two}。
+
+$$ \mu_1 = \mu_1^{'}=\mu_1^{''} = \left[
+            \begin{array}{clr}
+                2  \\
+                2 
+            \end{array} \right] ,
+            \mu_2 = \mu_2^{'} =\mu_2^{''} = \left[
+            \begin{array}{clr}
+                4  \\
+                1 
+            \end{array} \right] $$ 
+
+$$ \Sigma_1 = \left[
+            \begin{array}{clr}
+                1 & 0.5  \\
+                0.5 & 1
+            \end{array} \right] ,
+            \Sigma_2 = \left[
+            \begin{array}{clr}
+                1 & 0.5  \\
+                0.5 & 1 
+            \end{array} \right]  $$
+            
+$$ \Sigma_1^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1
+            \end{array} \right] ,
+            \Sigma_2^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.8  \\
+                0.8 & 1 
+            \end{array} \right]  $$
+       
+$$ \Sigma_1^{''} = \left[
+            \begin{array}{clr}
+                1 & 0.9  \\
+                0.9 & 1
+            \end{array} \right] ,
+            \Sigma_2^{''} = \left[
+            \begin{array}{clr}
+                1 & 0.3  \\
+                0.3 & 1 
+            \end{array} \right]  $$
+            
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.6]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation3.eps}
+    \caption{比較七種方法改變群共變異數實驗的兩群組雙變量常態資料散布圖}
+    \label{fig:hw7variance-two}
+\end{figure} 
+
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[H]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群共變異數的兩群組訓練資料分類錯誤率}\label{tb:hw7variancetrain-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\sigma^2=(0.2,0.2)$  & 0.112 & 0.111  & 0.112 & 0.112 & 0.116 & \textbf{0.099} & 0.114  \\
+$\sigma^2=(0.5,0.5)$  & 0.032 & 0.033 & 0.031 & 0.032 & 0.031 & \textbf{0.027} & 0.032 \\
+$\sigma^2=(0.2,0.8)$ & 0.053 & 0.052  & 0.053 & 0.053 & 0.057 & \textbf{0.046} & 0.052  \\
+$\sigma^2=(0.9,0.3)$  & 0.052 & 0.032 & 0.032 & 0.052 & \textbf{0.027} & \textbf{0.027} & 0.031   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[H]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群共變異數的兩群組測試資料分類錯誤率}\label{tb:hw7variancetest-two}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\sigma^2=(0.2,0.2)$  & 0.112 & 0.112  & 0.112 & 0.112 & \textbf{0.085} & 0.099 & 0.115  \\
+$\sigma^2=(0.5,0.5)$  & \textbf{0.031} & \textbf{0.032} & \textbf{0.031} & \textbf{0.031}  & 0.037 & 0.04 & \textbf{0.031} \\
+$\sigma^2=(0.2,0.8)$ & 0.054 & 0.050  & 0.052 & 0.054 & \textbf{0.027} & 0.04 & 0.05  \\
+$\sigma^2=(0.9,0.3)$  & 0.052 & 0.032 & 0.052 & 0.027 & \textbf{0.026} & 0.0958 & 0.12   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+圖 \ref{fig:hw7variance-two} 是實驗中的雙變量常態資料散布圖，而表 \ref{tb:hw7variancetrain-two} 與表 \ref{tb:hw7variancetest-two} 則是七種機器學習方法的分類準確度，根據兩個表格可知， KNN 模型依舊是訓練模型中表現最好的模型，但是 KNN 模型的測試資料準確度並非最高，QDA 模型則是整體表現最好的分類模型。至此本節完成了對兩群組雙變量常態的分類效果之觀察，下一節中則將繼續觀察七種機器學習方法在三群組雙變量常態資料的分類準確度。
+
+\section{七種機器學習方法對三群組資料的分類問題}
+
+在此章節中將分別針對七種機器學習方法建立分類模型，並比較這七種方法的訓練資料誤差與測試資料誤差，判斷出哪個模型在三群組分類中的表現是最好的，此節與前述章節相同，資料都是來自於雙變量常態母體資料，並透過三種實驗，改變樣本數大小、改變平均數與改變共變異數來比較這七種機器學習方法。
+
+\subsection{三群組更改樣本數大小的分類問題}
+
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.6]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation3class1.eps}
+    \caption{比較七種方法改變群樣本數實驗的三群組雙變量常態資料散布圖}
+    \label{fig:hw7sample-three}
+\end{figure} 
+
+$$ \mu_1 = \left[
+            \begin{array}{clr}
+                2  \\
+                2 
+            \end{array} \right] ,
+            \mu_2 = \left[
+            \begin{array}{clr}
+                4  \\
+                1 
+            \end{array} \right],
+            \mu_3 = \left[
+            \begin{array}{clr}
+                4  \\
+                5 
+            \end{array} \right]$$ 
+
+$$ \Sigma_1 = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1
+            \end{array} \right] ,
+            \Sigma_2 = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1 
+            \end{array} \right]  ,
+            \Sigma_3 = \left[
+            \begin{array}{clr}
+                1 & 0.2  \\
+                0.2 & 1 
+            \end{array} \right] $$
+
+首先觀察改變樣本數大小造成的分類準確度變化，圖 \ref{fig:hw7sample-three} 是此實驗中用到的雙變量常態資料的散布圖，其資料的參數亦呈現於上方。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變樣本數的三群組訓練資料分類錯誤率}\label{tb:hw7sampletrain-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$n_1=n_2=n_3=200$  & 0.467 & 0.480 & 0.366 & 0.365 & 0.356 & \textbf{0.262}  & 0.368 \\
+$n_1=n_2=n_3=500$  & 0.477 & 0.489 & 0.390 & 0.385 & 0.372 & \textbf{0.286} & 0.384 \\
+$n_1=n_2=n_3=1000$  & 0.481 & 0.493  & 0.408 & 0.405 & 0.401 & \textbf{0.288} & 0.404  \\
+$n_1=1000$, $n_2=500$, $n_3=200$  & 0.247 & 0.226 & 0.294 & 0.202 & 0.199 & \textbf{0.165} & 0.203   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+表 \ref{tb:hw7sampletrain-three} 與表 \ref{tb:hw7sampletest-three} 即為改變樣本數時七種機器學習的訓練誤差與測試誤差的比較，從表中可以知道，KNN 模型是訓練資料中誤差最小表現最好的模型，但是與兩群組實驗相同的是 QDA 模型才是七個模型中綜合表現最好的模型。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變樣本數的三群組測試資料分類錯誤率}\label{tb:hw7sampletest-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$n_1=n_2=n_3=200$  & 0.463 & 0.475 & 0.383 & 0.401 & 0.433 & \textbf{0.358}  & 0.397 \\
+$n_1=n_2=n_3=500$  & 0.474 & 0.486 & 0.396 & 0.399 & \textbf{0.363} & 0.445 & 0.397 \\
+$n_1=n_2=n_3=1000$  & 0.477 & 0.489  & 0.413 & 0.415 & \textbf{0.388} & 0.437 & 0.415  \\
+$n_1=1000$, $n_2=500$, $n_3=200$  & 0.248 & 0.226 & 0.304 & \textbf{0.203} & 0.218 & 0.247 & 0.204   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{三群組更改群平均的分類問題}
+
+$$ \mu_1 = \left[
+            \begin{array}{clr}
+                3  \\
+                3 
+            \end{array} \right] ,
+            \mu_2 = \left[
+            \begin{array}{clr}
+                4  \\
+                4 
+            \end{array} \right],
+            \mu_3 = \left[
+            \begin{array}{clr}
+                5  \\
+                5 
+            \end{array} \right]$$ 
+
+$$ \mu_1^{'} = \left[
+            \begin{array}{clr}
+                1  \\
+                6 
+            \end{array} \right] ,
+            \mu_2^{'} = \left[
+            \begin{array}{clr}
+                2  \\
+                5 
+            \end{array} \right],
+            \mu_3^{'} = \left[
+            \begin{array}{clr}
+                5  \\
+                5 
+            \end{array} \right]$$ 
+
+$$ \Sigma_1=\Sigma_1^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1
+            \end{array} \right] ,
+            \Sigma_2=\Sigma_2^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1 
+            \end{array} \right]  ,
+            \Sigma_3=\Sigma_3^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1 
+            \end{array} \right] $$
+            
+接著來觀察三群組雙變量常態資料改變群平均實驗的七種機器學習方法的分類效果，其使用的資料如圖 \ref{fig:hw7sample-three} 與 \ref{fig:hw7mean-three}，其資料參數亦呈現如上。
+                      
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.6]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation3class2.eps}
+    \caption{比較七種方法改變群平均實驗的三群組雙變量常態資料散布圖}
+    \label{fig:hw7mean-three}
+\end{figure} 
+
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群平均的三群組訓練資料分類錯誤率}\label{tb:hw7meantrain-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\mu_1=(2,2)$, $\mu_2=(4,1)$, $\mu_3=(4,5)$  & 0.481 & 0.493  & 0.408 & 0.405 & 0.401 & \textbf{0.288} & 0.404  \\
+$\mu_1=(3,3)$, $\mu_2=(4,4)$, $\mu_3=(5,5)$  & 0.608 & 0.598 & 0.512 & 0.515 & 0.505 & \textbf{0.384} & 0.516 \\
+$\mu_1=(1,6)$, $\mu_2=(2,4)$, $\mu_3=(5,5)$  & 0.477 & 0.486  & 0.397 & 0.398 & 0.395 & \textbf{0.283} & 0.397 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+根據表 \ref{tb:hw7meantrain-three} 與表 \ref{tb:hw7meantest-three} 可知，KNN 模型是訓練資料中表現最好的模型，羅吉斯迴歸 ( Logistic Regression ) 則是測試誤差綜合最小的模型。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[h]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群平均的三群組測試資料分類錯誤率}\label{tb:hw7meantest-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\mu_1=(2,2)$, $\mu_2=(4,1)$, $\mu_3=(4,5)$  & 0.477 & 0.489  & 0.413 & 0.415 & \textbf{0.388} & 0.437 & 0.415  \\
+$\mu_1=(3,3)$, $\mu_2=(4,4)$, $\mu_3=(5,5)$  & 0.609 & 0.599 & \textbf{0.514} & 0.521 & 0.543 & 0.565 & 0.522 \\
+$\mu_1=(1,6)$, $\mu_2=(2,4)$, $\mu_3=(5,5)$  & 0.478 & 0.488  & \textbf{0.404} & 0.412 & 0.422 & 0.438 & 0.410  \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+
+\subsection{三群組更改群共變異數的分類問題}
+
+最後，此章節透過改變共變異數來比較七種機器學習方法的訓練資料誤差與測試資料誤差，其使用的雙變量常態資料的參數如下，圖 \ref{fig:hw7variance-three} 則是這些資料的散布圖。
+
+$$ \mu_1=\mu_1^{'}=\mu_1^{''} = \left[
+            \begin{array}{clr}
+                2  \\
+                2 
+            \end{array} \right] ,
+            \mu_2=\mu_2^{'} =\mu_2^{''}= \left[
+            \begin{array}{clr}
+                4  \\
+                1 
+            \end{array} \right],
+            \mu_3=\mu_3^{'}=\mu_3^{''} = \left[
+            \begin{array}{clr}
+                4  \\
+                5 
+            \end{array} \right]$$ 
+
+$$ \Sigma_1 = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1
+            \end{array} \right] ,
+            \Sigma_2 = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1 
+            \end{array} \right]  ,
+            \Sigma_3 = \left[
+            \begin{array}{clr}
+                1 & 0.4  \\
+                0.4 & 1 
+            \end{array} \right] $$
+
+$$ \Sigma_1^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.1  \\
+                0.1 & 1
+            \end{array} \right] ,
+            \Sigma_2^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.7  \\
+                0.7 & 1 
+            \end{array} \right]  ,
+            \Sigma_3^{'} = \left[
+            \begin{array}{clr}
+                1 & 0.9  \\
+                0.9 & 1 
+            \end{array} \right] $$
+
+$$ \Sigma_1^{''} = \left[
+            \begin{array}{clr}
+                1 & 0.9  \\
+                0.9 & 1
+            \end{array} \right] ,
+            \Sigma_2^{''} = \left[
+            \begin{array}{clr}
+                1 & 0.3  \\
+                0.3 & 1 
+            \end{array} \right]  ,
+            \Sigma_3^{''} = \left[
+            \begin{array}{clr}
+                1 & 0.1  \\
+                0.1 & 1 
+            \end{array} \right] $$
+            
+            
+\begin{figure}[H]
+    \centering
+        \includegraphics[scale=0.5]{/Users/guoyixuan/Documents/vscodepython/Statistical Calculation/Homework5_LDA/image_hw5/simulation3class3.eps}
+    \caption{改變群共變異數實驗的三群組雙變量常態資料散布圖}
+    \label{fig:hw7variance-three}
+\end{figure} 
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[H]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群共變異數的三群組訓練資料分類錯誤率}\label{tb:hw7variancetrain-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\sigma^{2}=(0.2, 0.2, 0.2)$  & 0.481 & 0.493  & 0.408 & 0.405 & 0.401 & \textbf{0.288} & 0.404  \\
+$\sigma^{2}=(0.4, 0.4, 0.4)$  & 0.032 & 0.033 & 0.031 & 0.032 & 0.031 & \textbf{0.027} & 0.032 \\
+$\sigma^{2}=(0.1, 0.7, 0.9)$ & 0.447 & 0.442  & 0.369 & 0.371 & 0.368 & \textbf{0.242} & 0.367   \\
+$\sigma^{2}=(0.9, 0.3, 0.1)$  & 0.450 & 0.469 & 0.371 & 0.372 & 0.370 & \textbf{0.255} & 0.371   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+根據表 \ref{tb:hw7variancetrain-three} 與表 \ref{tb:hw7variancetest-three} 可觀察到七種方法的訓練誤差與測試誤差，其中無論共變異數是多少，KNN 模型都是訓練誤差最小的機器學習方法，而羅吉斯迴歸與 QDA 模型則是比較測試誤差時綜合表現較好的模型。
+
+\renewcommand\arraystretch{1.5}
+\begin{table}[H]
+\scriptsize
+\setlength{\belowcaptionskip}{0pt}
+\centering
+\caption{七種機器學習方法改變群共變異數的三群組測試資料分類錯誤率}\label{tb:hw7variancetest-three}
+\scalebox{1.2}{
+\begin{tabular}{cccccccc}
+\toprule
+& Regression & Augmented & Logistic & LDA & QDA & KNN & ANN\\
+\midrule
+$\sigma^{2}=(0.2, 0.2, 0.2)$  & 0.477 & 0.489  & \textbf{0.413} & 0.415 & 0.388 & 0.437 & 0.415  \\
+$\sigma^{2}=(0.4, 0.4, 0.4)$  & \textbf{0.031} & 0.032 & \textbf{0.031} & \textbf{0.031}  & 0.037 & 0.04 & \textbf{0.031} \\
+$\sigma^{2}=(0.1, 0.7, 0.9)$ & 0.448 & 0.443  & 0.376 & 0.383 & \textbf{0.371} & 0.378 & 0.38  \\
+$\sigma^{2}=(0.9, 0.3, 0.1)$  & 0.453 & 0.473 & 0.377 & 0.380 & \textbf{0.363} & 0.393 & 0.380   \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\section{結論}
+
+在此章節中依次重新簡述了前面章節所介紹到的七種機器學習方法，包含簡單線性迴歸 ( Simple Linear Regression )、加廣迴歸 ( Augmented Regression )、羅吉斯迴歸 ( Logistic Regression )、線性判別分析 ( LDA )、二次判別分析 ( QDA )、K-近鄰演算法 ( KNN ) 與類神經網路 ( ANN )，並就每種方法模擬生成兩群組與三群組雙變量常態資料建立分類模型並透過改變樣本數、平均數與共變異數來比較各自的訓練誤差與測試誤差，根據此章節的實驗可知，KNN 模型是所有方法中訓練誤差最小表現最好的模型，但是 QDA 模型才是其中測試誤差最低的模型。
+
+%\end{document}

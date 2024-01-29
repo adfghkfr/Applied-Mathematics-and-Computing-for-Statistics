@@ -1,0 +1,203 @@
+\documentclass[12pt, a4paper]{article} 
+\usepackage{fontspec} % Font selection for XeLaTeX; see fontspec.pdf. 
+
+\usepackage{xeCJK}	% 中文使用 XeCJK，利用 \setCJKmainfont 定義中文內文、粗體與斜體的字型
+%\usepackage[BoldFont, SlantFont]{xeCJK}
+% 中文使用 XeCJK，並模擬粗體與斜體（\textbf{ } \textit{ }）
+
+\defaultfontfeatures{Mapping=tex-text} 
+% to support TeX conventions like ``---''
+\usepackage{xunicode} 
+% Unicode support for LaTeX character names(accents, European chars, etc)
+\usepackage{xltxtra} 				
+% Extra customizations for XeLaTeX
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{graphicx, subfig, float, wrapfig} 
+% support the \includegraphics command and options
+\usepackage[outercaption]{sidecap} 
+%[options]=[outercaption], [innercaption], [leftcaption], [rightcaption]
+\usepackage{array, booktabs}
+\usepackage{color, xcolor}
+% 跨頁的超長表格;lscape是旋轉此類表格的
+\usepackage{longtable, lscape}              
+% 巨集,使表格加註解更容易(手冊p169)
+\usepackage{threeparttable}      
+% 讓表格編起來更美的套件(手冊p166),編輯跨列標題重覆的表格(手冊p182)           
+\usepackage{multirow, booktabs}             
+\usepackage{colortbl}     
+% 直接將 latex 碼轉換成顯示文字   
+\usepackage{listings}						
+% 新段落前加一空行，不使用縮排
+
+\usepackage[parfill]{parskip} 				
+% 新段落前加一空行，不使用縮排
+
+\usepackage{geometry} 
+% See geometry.pdf to learn the layout options. There are lots.
+%\usepackage[left=3in,right=3in,top=2in,bottom=2in]{geometry} 
+
+\usepackage{url}
+
+%.....表格標題註解之巨集套件.....%
+% for Reference
+\usepackage{natbib}			
+% for Indexing				
+\usepackage{makeidx}		
+% Activate to begin paragraphs with an empty line rather than an indent
+
+%章節設定
+\usepackage{titlesec, titletoc,CJKnumb}		
+
+
+%-----------------------------------------------------------------
+%  中英文內文字型設定
+%\setCJKmainfont							% 設定中文內文字型
+%	[
+		%BoldFont=Microsoft YaHei	    %定義粗體的字型（Win）
+%		BoldFont=蘋果儷中黑	    		%定義粗體的字型（Mac）
+%	]
+%	{新細明體}						% 設定中文內文字型(Win)
+%	{宋體-繁}							% 設定中文內文字型(Mac)	
+%\setmainfont{Times New Roman}		% 設定英文內文字型
+%\setsansfont{Arial}					% 無襯字字型 used with {\sffamily ...}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont{Courier New}			% 等寬字型 used with {\ttfamily ...}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+
+% 英文字型
+%\newfontfamily{\E}{Calibri}				
+%\newfontfamily{\A}{Arial}
+%\newfontfamily{\C}[Scale=0.9]{Arial}
+%\newfontfamily{\R}{Times New Roman}
+%\newfontfamily{\TT}[Scale=0.8]{Times New Roman}
+
+% 中文字型
+%\newCJKfontfamily{\MB}{微軟正黑體}				% 等寬及無襯線字體 Win
+%\newCJKfontfamily{\SM}[Scale=0.8]{新細明體}	% 縮小版(Win)
+%\newCJKfontfamily{\K}{標楷體}                	% Windows下的標楷體
+%\newCJKfontfamily{\BB}{Microsoft YaHei}		% 粗體 Win
+%\newCJKfontfamily{\CF}{cwTeX Q Fangsong Medium}	% CwTex 仿宋體
+%\newCJKfontfamily{\CB}{cwTeX Q Hei Bold}			% CwTex 粗黑體
+%\newCJKfontfamily{\CK}{cwTeX Q Kai Medium}   	% CwTex 楷體
+%\newCJKfontfamily{\CM}{cwTeX Q Ming Medium}		% CwTex 明體
+%\newCJKfontfamily{\CR}{cwTeX Q Yuan Medium}		% CwTex 圓體
+%----------------------------------------------------------
+%  中英文內文字型設定
+\setCJKmainfont							% 設定中文內文字型
+	[
+%		BoldFont=Microsoft YaHei	    % 定義粗體的字型（Win）
+		BoldFont=黑體-繁	    		    % 定義粗體的字型（Mac）
+	]
+%	{新細明體}						    % 設定中文內文字型(Win)
+	{宋體-繁}							% 設定中文內文字型(Mac)	
+\setmainfont{Times New Roman}		    % 設定英文內文字型
+\setsansfont{Arial}					    % 無襯字字型 used with {\sffamily ...}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+\setmonofont{Courier New}			    % 等寬字型 used with {\ttfamily ...}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}
+% 其他字型（隨使用的電腦安裝的字型不同，用註解的方式調整（打開或關閉））
+% 英文字型
+\newfontfamily{\A}{Arial}
+\newfontfamily{\C}{Cochin}				
+\newfontfamily{\SA}[Scale=0.9]{Arial}
+\newfontfamily{\R}{Times New Roman}
+\newfontfamily{\ST}[Scale=0.8]{Times New Roman}
+% 中文字型
+%\newCJKfontfamily{\MB}{微軟正黑體}				    % 等寬及無襯線字體 Win
+\newCJKfontfamily{\MB}{黑體-繁}				        % 等寬及無襯線字體 Mac
+%\newCJKfontfamily{\SM}[Scale=0.8]{新細明體}	        % 縮小版(Win)
+\newCJKfontfamily{\SM}[Scale=0.8]{宋體-繁}	        % 縮小版(Mac)
+%\newCJKfontfamily{\K}{標楷體}                	    % Windows下的標楷體
+\newCJKfontfamily{\K}{黑體-繁}               	    % Mac下的標楷體
+%\newCJKfontfamily{\BB}{Microsoft YaHei}		    % 粗體 Win
+\newCJKfontfamily{\BB}{宋體-繁}		                % 粗體 Mac
+% 以下為自行安裝的字型：CwTex 組合
+%\newCJKfontfamily{\CF}{cwTeX Q Fangsong Medium}	% CwTex 仿宋體
+%\newCJKfontfamily{\CB}{cwTeX Q Hei Bold}			% CwTex 粗黑體
+%\newCJKfontfamily{\CK}{cwTeX Q Kai Medium}   	    % CwTex 楷體
+%\newCJKfontfamily{\CM}{cwTeX Q Ming Medium}		% CwTex 明體
+%\newCJKfontfamily{\CR}{cwTeX Q Yuan Medium}		% CwTex 圓體
+%-------------------------------------------------------------
+\XeTeXlinebreaklocale "zh"             		
+%這兩行一定要加，中文才能自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt     		
+%這兩行一定要加，中文才能自動換行
+%-----------------------------------------------------------------------------------------------------------------------
+
+
+\newcommand{\cw}{\texttt{cw}\kern-.6pt\TeX}	% 這是 cwTex 的 logo 文字
+\newcommand{\imgdir}{/Users/guoyixuan/Documents/NTPU_STAT/images/}				% 設定圖檔的目錄位置
+\renewcommand{\tablename}{表}					% 改變表格標號文字為中文的「表」（預設為 Table）
+\renewcommand{\figurename}{圖}				% 改變圖片標號文字為中文的「圖」（預設為 Figure）
+\usepackage{booktabs}
+
+
+% 設定顏色 see color Table: http://latexcolor.com
+\usepackage{color}
+\definecolor{slight}{gray}{0.9}				
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66} 
+\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{cadmiumred}{rgb}{0.89, 0.0, 0.13}
+\definecolor{coolblack}{rgb}{0.0, 0.18, 0.39}
+\definecolor{beaublue}{rgb}{0.74, 0.83, 0.9}
+\definecolor{beige}{rgb}{0.96, 0.96, 0.86}
+\definecolor{bisque}{rgb}{1.0, 0.89, 0.77}
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+\definecolor{limegreen}{rgb}{0.2, 0.8, 0.2}
+\definecolor{splashedwhite}{rgb}{1.0, 0.99, 1.0}
+
+%---------------------------------------------------------------------
+% 映出程式碼 \begin{lstlisting} 的內部設定
+\lstset
+{	language=[LaTeX]TeX,
+    breaklines=true,
+    %basicstyle=\tt\scriptsize,
+    basicstyle=\tt\normalsize,
+    keywordstyle=\color{blue},
+    identifierstyle=\color{black},
+    commentstyle=\color{limegreen}\itshape,
+    stringstyle=\rmfamily,
+    showstringspaces=false,
+    %backgroundcolor=\color{splashedwhite},
+    backgroundcolor=\color{slight},
+    frame=single,							%default frame=none 
+    rulecolor=\color{gray(x11gray)},
+    framerule=0.4pt,							%expand outward 
+    framesep=3pt,							%expand outward
+    xleftmargin=3.4pt,		%to make the frame fits in the text area. 
+    xrightmargin=3.4pt,		%to make the frame fits in the text area. 
+    tabsize=2				%default :8 only influence the lstlisting and lstinline.
+}
+
+% 映出程式碼 \begin{lstlisting} 的內部設定 for Python codes
+%\lstset{language=Python}
+%\lstset{frame=lines}
+%\lstset{basicstyle=\SCP\normalsize}
+%\lstset{keywordstyle=\color{blue}}
+%\lstset{commentstyle=\color{airforceblue}\itshape}
+%\lstset{backgroundcolor=\color{beige}}
+
+%%%數學式定義定理範例設定%%%
+%%theroemstyle 需要使用的套件%%
+\usepackage{amsthm}						
+\theoremstyle{plain}
+
+%%Definition獨立編號%%
+\newtheorem{de}{定義}[section]
+%%Theorem獨立編號%%
+\newtheorem{thm}{{\MB 定理}}[section]		
+%%lemma和theorem共同編號%%
+\newtheorem{lemma}[thm]{Lemma}	
+%%Example獨立編號%%
+\newtheorem{ex}{{\A Example}}			
+
+\newtheorem{cor}{Corollary}[section]		%not used here
+\newtheorem{exercise}{EXERCISE}			%not used here
+\newtheorem{re}{\emph{Result}}[section]	%not used here
+\newtheorem{axiom}{AXIOM}				%not used here
+\renewcommand{\proofname}{證明}			%not used here
+\newcounter{quiz}						% start a simple and new counter
+\setcounter{quiz}{1}						% start to count from 1

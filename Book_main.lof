@@ -1,0 +1,112 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 範例圖 (jpeg圖)\relax }}{25}{}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 圖形並排的作法\relax }}{26}{}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {範例圖 (eps圖)}}}{26}{}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {範例圖 (png圖)}}}{26}{}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces 旋轉圖片\relax }}{27}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces $f(x)=sin(x)+cos(x)$\relax }}{30}{}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces $f(x)=(1-e^{-2x})/(1+e^{-2x})$\relax }}{30}{}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces $f(x)=\sqrt [3]{(4-x^3)/(1+x^2)}$\relax }}{31}{}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces $f(x)=1/x$\relax }}{32}{}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces $f(x)=x^{2/3}$\relax }}{33}{}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces $f(x)=1/(2\sqrt {2 \pi }) \qopname \relax o{exp}(-(x-1)^2/8)$\relax }}{33}{}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces $f(x)=ln(x)/x^3$\relax }}{34}{}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces $f(x)=2x^3-x^4$\relax }}{35}{}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces $f(x)=3$\relax }}{36}{}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces $Square$\relax }}{36}{}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces $S_n$ diverge when $n \to \infty $\relax }}{37}{}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces $\gamma _n$ and $S_n+ln(n+1)$\relax }}{38}{}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces $\frac {1}{2}(1-\frac {1}{n+1}) < \gamma _n < 1$\relax }}{39}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 二項分配的機率質量函數圖與累積機率函數圖\relax }}{42}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 二項分配與常態分配的機率函數圖\relax }}{43}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 超幾何分配的機率質量函數圖\relax }}{43}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 幾何分配的機率質量函數圖\relax }}{44}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces 卜瓦松分配的機率質量函數圖\relax }}{45}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 二項分配與卜瓦松分配的機率質量函數圖\relax }}{45}{}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces 樣本數為80且服從$Poisson(\lambda _{1}+\lambda _{2})$ 之隨機變數 $X+Y$ 的直方圖、箱型圖、qqplot 圖與經驗分布函數圖\relax }}{46}{}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces 樣本數為1000且服從$Poisson(\lambda _{1}+\lambda _{2})$ 之隨機變數 $X+Y$ 的直方圖、箱型圖、qqplot 圖與經驗分布函數圖\relax }}{47}{}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 樣本數為20的卜瓦松抽樣分配直方圖\relax }}{48}{}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces 樣本數為100的抽樣卜瓦松分配直方圖\relax }}{49}{}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces 樣本數為1000的抽樣卜瓦松分配直方圖\relax }}{49}{}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces 樣本數為20的抽樣卜瓦松分配 qqplot 圖\relax }}{49}{}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces 樣本數為100的抽樣卜瓦松分配 qqplot 圖\relax }}{50}{}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces 樣本數為1000的抽樣卜瓦松分配 qqplot 圖\relax }}{50}{}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces 卡方分配的機率密度函數圖\relax }}{51}{}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces 卡方分配、常態分配與伽瑪分配的機率密度函數圖\relax }}{52}{}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces 樣本數為100的$\chi ^2(1)$直方圖、箱型圖、qqplot 圖與經驗分布函數圖\relax }}{54}{}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces 樣本數為10000的$\chi ^2(1)$直方圖、箱型圖、qqplot 圖與經驗分布函數圖\relax }}{54}{}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces 指數分配的機率密度函數圖\relax }}{56}{}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces 錯誤的指數分配機率密度函數圖與累積機率函數圖\relax }}{57}{}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces 雙指數分配的機率密度函數圖與累積機率函數圖\relax }}{58}{}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces 伽瑪分配的機率密度函數圖\relax }}{59}{}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces 樣本數為100的 $\Gamma (\alpha _1+\alpha _2,\beta _1+\beta _2)$ 機率密度函數圖、qqplot 圖與經驗分布函數圖\relax }}{59}{}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces 樣本數為1000的 $\Gamma (\alpha _1+\alpha _2,\beta _1+\beta _2)$ 機率密度函數圖、qqplot 圖與經驗分布函數圖\relax }}{60}{}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces 樣本數為50的伽瑪抽樣分配直方圖\relax }}{61}{}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces 樣本數為1000的伽瑪抽樣分配直方圖\relax }}{61}{}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces 樣本數為50的伽瑪抽樣分配 qqplot 圖\relax }}{61}{}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces 樣本數為1000的伽瑪抽樣分配 qqplot 圖\relax }}{62}{}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces 貝塔分配的機率密度函數圖\relax }}{62}{}%
+\contentsline {figure}{\numberline {3.30}{\ignorespaces 貝塔抽樣分配直方圖\relax }}{63}{}%
+\contentsline {figure}{\numberline {3.31}{\ignorespaces 貝塔分配 qqplot 圖\relax }}{64}{}%
+\contentsline {figure}{\numberline {3.32}{\ignorespaces 貝塔分配經驗分布函數圖\relax }}{64}{}%
+\contentsline {figure}{\numberline {3.33}{\ignorespaces 柯西分配的機率密度函數圖與累積機率函數圖\relax }}{65}{}%
+\contentsline {figure}{\numberline {3.34}{\ignorespaces 常態分配機率分布圖\relax }}{66}{}%
+\contentsline {figure}{\numberline {3.35}{\ignorespaces 司徒頓 t 分配機率分布圖\relax }}{67}{}%
+\contentsline {figure}{\numberline {3.36}{\ignorespaces F 分配機率分布圖\relax }}{68}{}%
+\contentsline {figure}{\numberline {3.37}{\ignorespaces 使用迴圈繪製取後放回直方圖\relax }}{69}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 資料集 $la \_ 2.txt$ 的散布圖\relax }}{74}{}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 資料集 $la \_ 2.txt$ 之簡單線性迴歸模型\relax }}{76}{}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 資料集 $la \_ 2.txt$ 之簡單線性迴歸與加廣線性迴歸模型\relax }}{77}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces 樣本數為1000進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{79}{}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 樣本數為200進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{79}{}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 群平均為$(2,4)$與$(5,3)$進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{81}{}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces 群平均為 $(4,4)$與$(6,5)$ 進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{81}{}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces 群共變異數為 0.4 與 0.5 進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{82}{}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces 群共變異數為 0.9 與 0.2 進行簡單線性迴歸與加廣迴歸的訓練與測試資料準確度\relax }}{83}{}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces 第一個羅吉斯迴歸分類實驗分類準確度\relax }}{84}{}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces 第二個羅吉斯迴歸分類實驗分類準確度\relax }}{85}{}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces 第三個羅吉斯迴歸分類實驗之分類準確度\relax }}{86}{}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces 第四個羅吉斯迴歸分類實驗之分類準確度\relax }}{87}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 多變量常態母體資料之 2D 圖像\relax }}{91}{}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces 多變量常態母體資料之 3D 圖像\relax }}{92}{}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 線性判別分析之二元分類範例\relax }}{95}{}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 線性判別分析之二元分類圖\relax }}{97}{}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 第一種線性判別分析與二次判別分析之二元分類圖\relax }}{98}{}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 第二種線性判別分析與二次判別分析之二元分類圖\relax }}{99}{}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces 利用理論進行 K-近鄰演算法之二元分類圖\relax }}{101}{}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces 利用 sklearn 進行 K-近鄰演算法之二元分類圖\relax }}{102}{}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces K-近鄰演算法之兩群組雙變量常態資料之 2D 圖\relax }}{103}{}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces K-近鄰演算法之兩群組雙變量常態資料之 3D 圖\relax }}{103}{}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces K-近鄰演算法之三群組雙變量常態資料之 2D 圖\relax }}{104}{}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces K-近鄰演算法之三群組雙變量常態資料之 3D 圖\relax }}{104}{}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces 設置不同 K 值之 K-近鄰演算法的兩組與三組資料的訓練與測試資料分類誤差\relax }}{105}{}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces K-近鄰演算法之兩群組分類圖\relax }}{106}{}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces K-近鄰演算法之三群組分類圖\relax }}{107}{}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces 改變樣本數實驗的兩群組雙變量常態資料散布圖\relax }}{108}{}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces 改變群平均實驗的兩群組雙變量常態資料散布圖\relax }}{110}{}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces 改變群共變異數實驗的兩群組雙變量常態資料散布圖\relax }}{112}{}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces 改變群樣本數實驗的三群組雙變量常態資料散布圖\relax }}{113}{}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces 改變群平均實驗的三群組雙變量常態資料散布圖\relax }}{115}{}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces 改變群共變異數實驗的三群組雙變量常態資料散布圖\relax }}{116}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces 類神經網路 ( ANN ) 示意圖\relax }}{120}{}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces 兩截式機械手臂示意圖\relax }}{122}{}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces 扇形圖\relax }}{123}{}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces 改變隱藏層之類神經網路模型\relax }}{124}{}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces 套件 $MLPRegressor$ 之類神經網路模型\relax }}{126}{}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces 套件 $Neurolab.newff$ 之類神經網路模型\relax }}{127}{}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces 手寫數字範例圖\relax }}{129}{}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces 1000筆資料集之類神經網路分類模型的測試資料混淆矩陣\relax }}{130}{}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces 10000筆類神經網路分類模型的測試資料混淆矩陣\relax }}{131}{}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces 比較七種方法改變樣本數實驗的兩群組雙變量常態資料散布圖\relax }}{139}{}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces 比較七種方法改變群平均實驗的兩群組雙變量常態資料散布圖\relax }}{140}{}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces 比較七種方法改變群共變異數實驗的兩群組雙變量常態資料散布圖\relax }}{142}{}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces 比較七種方法改變群樣本數實驗的三群組雙變量常態資料散布圖\relax }}{143}{}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces 比較七種方法改變群平均實驗的三群組雙變量常態資料散布圖\relax }}{145}{}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces 改變群共變異數實驗的三群組雙變量常態資料散布圖\relax }}{146}{}%
+\addvspace {10\p@ }
